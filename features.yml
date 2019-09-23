@@ -1,0 +1,19 @@
+features: ['device_type','os_vendor','os_name','os_version','browser_name','browser_version','location_region','location_state','app_name','site_name','site_link','data_type','exchange','carrier','captured_time',
+ 'device_screen_height','device_screen_width','device_screen_pixel_ratio']          
+cat_attributes : ['device_type',
+ 'os_vendor',
+ 'location_region',
+ 'location_state',
+ 'exchange',
+ 'carrier',
+ 'inventory',
+ 'os_name_version',
+ 'browser_name_version']
+num_attributes: ['device_screen_height',
+ 'device_screen_width',
+ 'device_screen_pixel_ratio',
+ 'day',
+ 'hour',
+ 'minute']
+target: ['y']
+
