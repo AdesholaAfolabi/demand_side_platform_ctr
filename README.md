@@ -17,7 +17,7 @@ be used with any programming language.
 
 ## Expected Output
 
-The expected output of this application are probability scores of users which indicate their individual propensities to click on a Campain Advert. This users are ranked on a scale of 0 - 1. Users with high probabilities have high propensity to click on the campaign adverts while users with low probabilities have low propensity. 
+The expected output of this application are probability scores of users which indicate their individual propensities to click on a digital campain Advertisement. This users are ranked on a scale of 0 - 1. Users with high probabilities have high propensity to click on the campaign adverts while users with low probabilities have low propensity. 
 
 
 ## Setup
@@ -40,34 +40,4 @@ Flask TensorFlow Serving supports the following Content-Types for requests:
 *text/csv
  
 The flask app will convert data in these formats to TensorFlow Serving REST API requests, and will send these requests to the default serving signature of our Saved Model. Read in the yaml file but you need to specify the path to your yaml file.
-```ruby
-import yaml
-    config = yaml.safe_load(open("add_your_path/features.yml"))
-    FEATURE = config['features']
-    data = None
-    file =  flask.request.files["data"]
-    if file.content_type == 'text/csv':
-        data = flask.request.files["data"]
-        data = pd.read_csv(data,usecols=FEATURE)
-    elif file.content_type == 'application/json':
-        data = flask.request.files["data"]
-        data = pd.read_json(data)
-        data=data[FEATURE]
-        data['captured_time'] = data['captured_time'].astype(str)
-    else:
-        return flask.Response(response='This predictor only supports CSV/JSON data', status=414, mimetype='text/plain')
-## Predictions
-After reading in the data, the pipeline_object function is called on the data. Which preprocesses the data and fits the data in to a pipeline object before making predictions.
 
-dataframe = post_process.pipeline_object(data)
-    with session.graph.as_default(): 
-        tf.keras.backend.set_session(session)
-        inf = wide_model.predict(dataframe)
-    out = io.StringIO()
-    pd.DataFrame({'results':inf.flatten()}).to_csv(out, index=False,sep=',',header=['score'])
-    result = out.getvalue()
-    return result
-## App Hosting
-You can set host and port of the app
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port= ----, debug=True)
