@@ -1,11 +1,10 @@
-# demand_side_platform_ctr
 # Machine-learning project
-# DSP CTR MODEL API
+# Demand_Side_Platform_ctr
 
 ## Table of contents
 * [General info](#general-info)
+* [Expected Output]
 * [Setup](#setup)
-* [Screenshots](#screenshots)
 * [Pre and Post-Processing](#features)
 
 
@@ -15,6 +14,10 @@ into various solutions by making a request to the service's HTTP application end
 The documentation is intended for developers/users who want to write applications that can
 interact with the Click Prediction Service API. The service is REST adherent and can
 be used with any programming language.
+
+## Expected Output
+
+The expected output of this application are probability scores of users which indicate their individual propensities to click on a Campain Advert. This users are ranked on a scale of 0 - 1. Users with high probabilities have high propensity to click on the campaign adverts while users with low probabilities have low propensity. 
 
 
 ## Setup
