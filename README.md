@@ -55,8 +55,9 @@ import yaml
         data['captured_time'] = data['captured_time'].astype(str)
     else:
         return flask.Response(response='This predictor only supports CSV/JSON data', status=414, mimetype='text/plain')
+```ruby
 After reading in the data, the pipeline_object function is called on the data. Which preprocesses the data and fits the data in to a pipeline object before making predictions.
-ruby
+```ruby
 dataframe = post_process.pipeline_object(data)
     with session.graph.as_default(): 
         tf.keras.backend.set_session(session)
@@ -66,6 +67,6 @@ dataframe = post_process.pipeline_object(data)
     result = out.getvalue()
     return result
 You can set host and port of the app
-ruby
+```ruby
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port= ----, debug=True)
