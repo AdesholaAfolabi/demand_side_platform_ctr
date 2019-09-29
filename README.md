@@ -16,8 +16,6 @@ The documentation is intended for developers/users who want to write application
 interact with the Click Prediction Service API. The service is REST adherent and can
 be used with any programming language.
 
-## Screenshots
-![Example screenshot](./img/screenshot.png)
 
 ## Setup
 Set up the flask application environment. In the same environment, there is a `Preprocessing.py` and `Postprocess.py` scripts. The `Preprocessing.py` does the data cleaning and preprocessing. The `Postprocess.py` loads the preprocessor pikle object which transforms the data. The model folder contains a `model.h5` and the `preprocessor.pkl` object. The `Features.yml` contains features used for building the model. 
@@ -55,9 +53,9 @@ import yaml
         data['captured_time'] = data['captured_time'].astype(str)
     else:
         return flask.Response(response='This predictor only supports CSV/JSON data', status=414, mimetype='text/plain')
-```ruby
+## Predictions
 After reading in the data, the pipeline_object function is called on the data. Which preprocesses the data and fits the data in to a pipeline object before making predictions.
-```ruby
+
 dataframe = post_process.pipeline_object(data)
     with session.graph.as_default(): 
         tf.keras.backend.set_session(session)
@@ -66,7 +64,7 @@ dataframe = post_process.pipeline_object(data)
     pd.DataFrame({'results':inf.flatten()}).to_csv(out, index=False,sep=',',header=['score'])
     result = out.getvalue()
     return result
+## App Hosting
 You can set host and port of the app
-```ruby
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port= ----, debug=True)
