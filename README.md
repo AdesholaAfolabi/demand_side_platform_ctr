@@ -1,12 +1,12 @@
 # Machine-learning project
-# Demand_Side_Platform_ctr
+# Demand_Side_Platform_Click_Through_Rate
 
 ## Table of contents
 * [General info](#general-info)
 * [Problem statement](#problem-statement)
-* [Expected Output](#expected-output)
 * [Setup](#setup)
 * [Pre and Post-Processing](#features)
+* [Expected Output](#expected-output)
 
 
 ## General info
